@@ -1,0 +1,16 @@
+%% Second derivative of hermite function of order n
+%% estimated recursively using hf(n) denoted by input hf
+
+function ddHddw = secondDerivativeHF(hf, n)
+	% hf 3D if n>1, else 2D
+	if n>1
+		ddHddw = 0.5 ...
+			* (sqrt((n-1)*n) * hf(1, :) ...
+		- (2*n+1) * hf(2, :) ...
+		+ sqrt((n+1)*(n+2)) * hf(3, :));
+	else
+		ddHddw = 0.5 ...
+			* ( - (2*n+1) * hf(1, :) ...
+		+ sqrt((n+1)*(n+2)) * hf(2, :));
+	end
+end
